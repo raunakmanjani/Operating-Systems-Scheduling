@@ -1,0 +1,79 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+typedef struct process
+{
+    int id;
+    int arrival;
+    int burst;
+    int wait;
+    int tat;
+}process;
+typedef struct process* pro;
+int n;
+pro p,b;
+int time,ari;
+int main()
+{
+n=1;
+time=0;
+ari=0;
+    p=b=(pro)malloc(sizeof(struct process));
+    printf("First come First Serve Scheduling\n\n");
+    while(1)
+    {
+    printf("is there any process available?(1\\0)");
+    int a;
+    scanf("%d",&a);
+    if(a==1)
+    {
+    int i;
+    n++;
+
+        b=(process*)malloc(n*sizeof(struct process));
+        printf("n");
+        process *temp1;
+        process *temp2;
+        for(i=0;i<n;i++)
+        {
+            temp1=p;
+            temp2=b;
+            temp2->id=temp1->id;
+            temp2->arrival=temp1->arrival;
+            temp2->burst=temp1->burst;
+            temp2->wait=temp1->wait;
+            temp2->tat=temp1->tat;
+            p++;
+            b++;
+        }
+        printf("enter process id:");
+        int pid;
+        scanf("%d",&pid);
+        temp2->id=pid;
+        printf("\nenter arrival time:");
+        int ar;
+        scanf("%d",&ar);
+        temp2->arrival=ar;
+        printf("\nenter burst time");
+        int bt;
+        scanf("%d",&bt);
+        temp2->burst=bt;
+
+        printf("%d %d %d",temp2->id,temp2->arrival,temp2->burst);
+    }
+    else if (a==0)
+    {
+    printf("arrival time is: %d",++ari);
+    printf("time completed is: %d",++time);
+    
+
+
+        continue;
+
+
+    }
+
+
+    }
+    return 0;
+}
